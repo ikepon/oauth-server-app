@@ -109,4 +109,8 @@ Doorkeeper.configure do
 
   # WWW-Authenticate Realm (default "Doorkeeper").
   # realm "Doorkeeper"
+
+  resource_owner_from_credentials do
+    User.authenticate(params[:username], params[:password])
+  end
 end
