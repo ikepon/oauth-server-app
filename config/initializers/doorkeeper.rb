@@ -9,12 +9,12 @@ Doorkeeper.configure do
     # Example implementation:
     #   User.find_by_id(session[:user_id]) || redirect_to(new_user_session_url)
 
-    User.find_by_id(session[:current_user_id]) || redirect_to(new_user_url)
+    current_user || redirect_to(login_path)
   end
 
   # If you want to restrict access to the web interface for adding oauth authorized applications, you need to declare the block below.
   admin_authenticator do
-    current_user || redirect_to(new_user_url)
+    current_user || redirect_to(login_path)
   end
 
   # Authorization Code expiration time (default 10 minutes).
