@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   root :to => 'users#root'
 
   use_doorkeeper
-  devise_for :users
 
   get '/me' => 'application#me'
 end
