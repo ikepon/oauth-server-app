@@ -32,12 +32,16 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'sorcery'
 gem 'doorkeeper'
+gem 'the_garage', github: 'cookpad/garage'
 
 gem 'dotenv-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'factory_girl_rails', '~> 4.5.0'
+  gem 'pry-rails', '~> 0.3.2'
+  gem 'rspec-rails', '~> 3.1.0'
 end
 
 group :development do
