@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action :doorkeeper_authorize!, only: [:show] # show のみ認証が必要
+  before_action :doorkeeper_authorize!, only: :me
+
+  def me
+    render json: User.find(doorkeeper_token.resource_owner_id).as_json
+  end
 
   # GET /users
   # GET /users.json
